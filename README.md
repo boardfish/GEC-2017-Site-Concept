@@ -1,6 +1,6 @@
 # Mambui Homepage
 
-To be installed on Raspbian Jessie. Project files can also be cloned into a FullPageOS installation.
+To be installed on a server and made as the homepage on PCs running Raspberry/Instant WebKiosk.
 
 ## Installation steps:
 ```
