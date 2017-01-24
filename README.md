@@ -1,21 +1,39 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [Freelancer](http://startbootstrap.com/template-overviews/freelancer/)
+# Mambui Homepage
 
-[Freelancer](http://startbootstrap.com/template-overviews/freelancer/) is a one page freelancer portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid with hover effects, full page portfolio item modals, and a working PHP contact form.
+To be installed on Raspbian Jessie. Project files can also be cloned into a FullPageOS installation.
 
-## Getting Started
+## Installation steps:
+```
+wget https://dl.dropboxusercontent.com/u/87113035/chromium-browser-l10n_45.0.2454.85-0ubuntu0.15.04.1.1181_all.deb
+wget https://dl.dropboxusercontent.com/u/87113035/chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
+wget https://dl.dropboxusercontent.com/u/87113035/chromium-codecs-ffmpeg-extra_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
+sudo dpkg -i chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb
+sudo dpkg -i chromium-browser-l10n_45.0.2454.85–0ubuntu0.15.04.1.1181_all.deb chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb
+sudo apt-get install x11-xserver-utils
+cd .config/lxsession/LXDE-pi/
+sudo nano autostart
+```
+Add this to the end: 
+```
+@chromium-browser — kiosk — incognito /home/pi/GEC-2017-Site-Concept/index.html
+@xset s noblank
+@xset s off
+@xset -dpms
+```
+Save with Ctrl+X.
+```
+sudo nano /etc/lightdm/lightdm.conf
+```
+Change the line beginning with xserver-command to read like this:
+```
+xserver-command= X -s 0 -dpms
+```
 
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](http://startbootstrap.com/template-overviews/freelancer/)
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-freelancer.git`
-* Fork the repo
+## Credits
 
-## Bugs and Issues
+Thank you to Mike Swartz of Upstatement for the **[guide](https://medium.com/stories-from-upstatement/how-to-build-a-web-kiosk-with-a-raspberry-pi-some-cables-and-a-tv-3dc2724acaa1#.aedvwj5jg)** on how to install this on a Raspberry Pi.
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-freelancer/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/freelancer/).
-
-## Creator
-
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+Start Bootstrap and the Freelancer theme were created by and are maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
 
 * https://twitter.com/davidmillerskt
 * https://github.com/davidtmiller
